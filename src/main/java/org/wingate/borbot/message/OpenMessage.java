@@ -6,14 +6,12 @@ import javax.swing.*;
 
 public class OpenMessage extends AbstractMessage {
 
-    public OpenMessage(String appName) {
-        if(appName == null || appName.isEmpty()){
+    public OpenMessage(String appPath) {
+        if(appPath == null || appPath.isEmpty()){
             status = -1;
             updateStatus();
         }
-        name = "Open";
-        order = appName + " opens";
-//        w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        w.setVisible(true);
+        path = appPath;
+        order = "Open";
     }
 }

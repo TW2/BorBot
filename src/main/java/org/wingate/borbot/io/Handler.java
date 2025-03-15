@@ -1,5 +1,8 @@
 package org.wingate.borbot.io;
 
+import org.wingate.borbot.ui.Window;
+
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
@@ -20,6 +23,16 @@ public class Handler implements Runnable {
             try {
                 socket = serverSocket.accept();
                 InputStream in = socket.getInputStream();
+                DataInputStream receiver = new DataInputStream(in);
+
+                switch (receiver.readUTF()){
+                    case "Window" -> {
+                        String xml = receiver.readUTF();
+                        XML.Reader reader = new XML.Reader(xml);
+                        Window window = reader.getWindowhandler().getWindow();
+                        window.setVisible(true);
+                    }
+                }
 
                 System.out.println("Hello, it works!");
                 socket.close();

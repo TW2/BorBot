@@ -3,8 +3,8 @@ package org.wingate.borbot.message;
 import java.awt.*;
 
 public interface Message {
-    String getName();
-    void setName(String name);
+    String getPath();
+    void setPath(String path);
     String getOrder();
     void setOrder(String order);
     int getPort();

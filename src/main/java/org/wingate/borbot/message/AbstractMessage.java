@@ -4,14 +4,14 @@ import java.awt.*;
 
 public abstract class AbstractMessage implements Message {
 
-    protected String name;
+    protected String path;
     protected String order;
     protected int port;
     protected Point clickLocation;
     protected int status;
 
     AbstractMessage(){
-        name = "Unknown message";
+        path = null;
         order = "Unknown order";
         port = 3200;
         clickLocation = null;
@@ -19,13 +19,13 @@ public abstract class AbstractMessage implements Message {
     }
 
     @Override
-    public String getName() {
-        return name;
+    public String getPath() {
+        return path;
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
+    public void setPath(String path) {
+        this.path = path;
     }
 
     @Override

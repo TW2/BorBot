@@ -20,7 +20,7 @@ public class BorBot {
                         -server <p>     This command initialize a new server with a port <p> which is waiting for app signal.
                         -client <p>     This command starts a client which try to bind server port <p>.
                         If you choose to start a client, you have to write one more argument:
-                        -name <name>    This is the name of the application you try to open in server.
+                        -path <path>    This is the path of the application you try to open in server.
                         """);
                 System.exit(0);
             }else{
@@ -49,7 +49,7 @@ public class BorBot {
             }
         }
         if(args.length < 4) return false;
-        if(args[0].equals("-client") && args[2].equals("-name")){
+        if(args[0].equals("-client") && args[2].equals("-path")){
             try{
                 int port = Integer.parseInt(args[1]);
                 OpenMessage op = new OpenMessage(args[3]);
